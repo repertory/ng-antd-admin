@@ -8,6 +8,6 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
 
   @Input() topMode: boolean = false;
-  @Input() setting: object = {};
+  @Input() setting: any = {};
 
 }

@@ -1,5 +1,5 @@
-<div [class.head]="topMode" [class.light]="topMode && setting.theme == 'light'" [class.dark]="topMode && setting.theme == 'dark'">
-  <div [class.header]="!topMode" [class.main]="topMode" [class.wide]="topMode && setting.fixedWidth">
+<div [class.head]="topMode" [class.light]="topMode && setting?.theme == 'light'" [class.dark]="topMode && setting?.theme == 'dark'">
+  <div [class.header]="!topMode" [class.main]="topMode" [class.wide]="topMode && setting?.fixedWidth">
     <div class="left">
       <ng-content select="ng-container[left]"></ng-content>
     </div>

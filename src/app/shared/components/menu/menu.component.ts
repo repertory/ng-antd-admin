@@ -15,7 +15,7 @@ interface MenuInterface {
 export class MenuComponent {
 
   @Input() data: MenuInterface[] = [];
-  @Input() setting: object = {};
+  @Input() setting: any = {};
   @Input() mode: string = 'inline';
   @Input() inlineCollapsed: boolean = false;
 

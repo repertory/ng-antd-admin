@@ -15,7 +15,7 @@ export class LayoutComponent {
   @Input() siderWidth: number = 256;
   @Input() siderMode: string = 'side';
   @Input() topMode: boolean = false;
-  @Input() setting: object = {};
+  @Input() setting: any = {};
 
   @Input()
   get collapsed(): boolean {
