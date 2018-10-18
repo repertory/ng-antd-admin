@@ -8,52 +8,10 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <style type="text/css">
-    @keyframes fade {
-      from {
-        opacity: 1.0;
-      }
-
-      50% {
-        opacity: 0.4;
-      }
-
-      to {
-        opacity: 1.0;
-      }
-    }
-
-    @-webkit-keyframes fade {
-      from {
-        opacity: 1.0;
-      }
-
-      50% {
-        opacity: 0.4;
-      }
-
-      to {
-        opacity: 1.0;
-      }
-    }
-
-    .loading {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 18px;
-      color: black;
-      animation: fade 3000ms infinite;
-      -webkit-animation: fade 3000ms infinite;
-    }
-
-  </style>
 </head>
 
-<body app-root style="margin:0;padding:0;">
-  <div class="loading">loading...</div>
+<body app-root>
+  <div class="preloader">loading...</div>
 </body>
 
 </html>

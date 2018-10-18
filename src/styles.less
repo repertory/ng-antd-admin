@@ -1,11 +1,37 @@
 @import "~ng-zorro-antd/ng-zorro-antd.less";
 @icon-url : "/assets/fonts/iconfont/iconfont";
 body {
+    margin: 0;
     padding: 0 !important;
+}
+
+.preloader {
+    @keyframes fade {
+        from {
+            opacity: 1.0;
+        }
+        50% {
+            opacity: 0.4;
+        }
+        to {
+            opacity: 1.0;
+        }
+    }
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    animation: fade 3000ms infinite;
 }
 
 .colorweak {
     filter: invert(80%);
+}
+
+.class {
+    transition: opacity .3s linear, height 0s ease .3s;
 }
 
 // [color="dust"] {
