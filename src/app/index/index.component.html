@@ -1,17 +1,10 @@
-<div class="layout">
-  <header class="header">
-    <div class="content">
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>User</nz-breadcrumb-item>
-        <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
-      </nz-breadcrumb>
-    </div>
-  </header>
-  <div class="main">
-    <div class="content">
-      <p>
-        index works!
-      </p>
-    </div>
-  </div>
-</div>
+<ng-template #header>
+  <nz-breadcrumb>
+    <nz-breadcrumb-item>User</nz-breadcrumb-item>
+    <nz-breadcrumb-item>Bill</nz-breadcrumb-item>
+  </nz-breadcrumb>
+</ng-template>
+
+<app-page [header]="header">
+  index works!
+</app-page>

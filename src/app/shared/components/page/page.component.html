@@ -1,0 +1,10 @@
+<div class="header" *ngIf="header">
+  <div class="content">
+    <ng-container [ngTemplateOutlet]="header"></ng-container>
+  </div>
+</div>
+<div class="main">
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

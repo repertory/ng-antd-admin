@@ -4,11 +4,11 @@
     <div class="logo" [class.light]="layout.setting.theme == 'light'">
       <h1>LOGO</h1>
     </div>
-    <app-menu [data]="menu" [inlineCollapsed]="layout.siderMode == 'over' ? false : layout.collapsed" [setting]="layout.setting"></app-menu>
+    <app-menu [data]="menu" [inlineCollapsed]="layout.siderMode == 'over' ? false : layout.collapsed"></app-menu>
   </ng-container>
 
   <ng-container header>
-    <app-header [setting]="layout.setting" [topMode]="layout.topMode()">
+    <app-header>
       <ng-container left *ngIf="!layout.topMode()">
         <i class="anticon trigger" [class.anticon-menu-fold]="!layout.collapsed" [class.anticon-menu-unfold]="layout.collapsed"
           (click)="layout.collapsed=!layout.collapsed"></i>
@@ -17,7 +17,7 @@
         <div class="logo">
           <h1>LOGO</h1>
         </div>
-        <app-menu mode="horizontal" [data]="menu" [setting]="layout.setting"></app-menu>
+        <app-menu [data]="menu" mode="horizontal"></app-menu>
       </ng-container>
       <ng-container right>
         <a class="action" nz-tooltip nzPlacement="bottom" nzTitle="获取源码" target="_blank" href="https://github.com/repertory/ng-antd-admin">

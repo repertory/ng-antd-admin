@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,14 @@ import { Component, Input } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Input() topMode: boolean = false;
-  @Input() setting: any = {};
+  get setting() {
+    return this.layout.setting;
+  }
+
+  get topMode() {
+    return this.layout.topMode;
+  }
+
+  constructor(private layout: LayoutComponent) { }
 
 }

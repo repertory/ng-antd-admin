@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { LayoutComponent } from '../layout/layout.component';
 
 interface MenuInterface {
   title?: string;
@@ -15,8 +16,13 @@ interface MenuInterface {
 export class MenuComponent {
 
   @Input() data: MenuInterface[] = [];
-  @Input() setting: any = {};
   @Input() mode: string = 'inline';
   @Input() inlineCollapsed: boolean = false;
+
+  get setting() {
+    return this.layout.setting;
+  }
+
+  constructor(private layout: LayoutComponent) { }
 
 }
