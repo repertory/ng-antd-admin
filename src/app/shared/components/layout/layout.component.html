@@ -22,7 +22,7 @@
     <nz-header *ngIf="region?.header !== false">
       <ng-content select="ng-container[header]"></ng-content>
     </nz-header>
-    <nz-content>
+    <nz-content [class.wide]="topMode && setting.fixedWidth">
       <ng-content></ng-content>
     </nz-content>
     <nz-footer *ngIf="region?.footer !== false">

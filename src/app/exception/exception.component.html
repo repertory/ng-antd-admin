@@ -1,12 +1,18 @@
-<div class="exception">
-  <div class="imgBlock">
-    <div class="imgEle" [style.backgroundImage]="data[code]?.image"></div>
-  </div>
-  <div class="content">
-    <h1>{{ code }}</h1>
-    <div class="desc">{{ data[code]?.desc }}</div>
-    <div class="actions" *ngIf="data[code]?.backText">
-      <button nz-button nzType="primary" [routerLink]="data[code]?.backLink || null">{{ data[code]?.backText }}</button>
+<div class="layout">
+  <div class="main">
+    <div class="content">
+      <div class="exception">
+        <div class="imgBlock">
+          <div class="imgEle" [style.backgroundImage]="data[code]?.image"></div>
+        </div>
+        <div class="content">
+          <h1>{{ code }}</h1>
+          <div class="desc">{{ data[code]?.desc }}</div>
+          <div class="actions" *ngIf="data[code]?.backText">
+            <button nz-button nzType="primary" [routerLink]="data[code]?.backLink || null">{{ data[code]?.backText }}</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

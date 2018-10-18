@@ -1,3 +1,4 @@
+@import '~ng-zorro-antd/style/themes/default.less';
 nz-layout {
     min-height: 100vh;
 }
@@ -27,4 +28,46 @@ nz-sider {
 
 nz-header {
     padding: 0;
+}
+
+nz-content {
+    ::ng-deep .layout:first-child {
+        .content {
+            margin: 24px 24px 0;
+        }
+        @media screen and (max-width: @screen-sm) {
+            .content {
+                margin: 24px 0 0;
+            }
+        }
+        .header {
+            padding: 16px 0;
+            background: @component-background;
+            border-bottom: @border-width-base @border-style-base @border-color-split;
+            .content {
+                margin-top: 0;
+            }
+        }
+    }
+    &.wide ::ng-deep .layout:first-child {
+        .main {
+            padding: 0 24px;
+        }
+        .header {
+            padding: 16px 24px;
+        }
+        @media screen and (max-width: @screen-sm) {
+            .main {
+                padding: 0;
+            }
+            .header {
+                padding: 16px 0;
+            }
+        }
+        .content {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }
