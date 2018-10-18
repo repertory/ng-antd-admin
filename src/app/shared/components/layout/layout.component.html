@@ -1,0 +1,32 @@
+<nz-layout [class.light]="setting?.theme == 'light'">
+  <ng-container *ngIf="region?.sider !== false && !topMode">
+    <ng-template #sider>
+      <ng-content select="ng-container[sider]"></ng-content>
+    </ng-template>
+
+    <nz-drawer *ngIf="siderMode == 'over'" [nzClosable]="false" [nzVisible]="!collapsed" nzPlacement="left" (nzOnClose)="collapsed = true"
+      [nzBodyStyle]="{padding:0}">
+      <nz-layout>
+        <nz-sider [nzWidth]="siderWidth" [nzTrigger]="null" [class.light]="setting?.theme == 'light'">
+          <ng-container [ngTemplateOutlet]="sider"></ng-container>
+        </nz-sider>
+      </nz-layout>
+    </nz-drawer>
+
+    <nz-sider *ngIf="siderMode == 'side'" nzCollapsible [(nzCollapsed)]="collapsed" [nzWidth]="siderWidth" [nzTrigger]="null"
+      [class.light]="setting?.theme == 'light'">
+      <ng-container [ngTemplateOutlet]="sider"></ng-container>
+    </nz-sider>
+  </ng-container>
+  <nz-layout>
+    <nz-header *ngIf="region?.header !== false">
+      <ng-content select="ng-container[header]"></ng-content>
+    </nz-header>
+    <nz-content>
+      <ng-content></ng-content>
+    </nz-content>
+    <nz-footer *ngIf="region?.footer !== false">
+      <ng-content select="ng-container[footer]"></ng-content>
+    </nz-footer>
+  </nz-layout>
+</nz-layout>

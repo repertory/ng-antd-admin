@@ -1,0 +1,121 @@
+@import '~ng-zorro-antd/style/themes/default.less';
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: auto;
+    background: @layout-body-background;
+}
+
+.content {
+    flex: 1 1 auto;
+    padding: 32px 0;
+    flex: 1;
+}
+
+@media (min-width: @screen-md-min) {
+    :host {
+        background-image: url('/assets/images/background.svg');
+        background-repeat: no-repeat;
+        background-position: center 110px;
+        background-size: 100%;
+    }
+    .content {
+        padding: 162px 0 24px 0;
+    }
+}
+
+.main {
+    width: 368px;
+    margin: 0 auto;
+    @media screen and (max-width: @screen-sm) {
+        width: 95%;
+    }
+    .icon {
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.2);
+        margin-left: 16px;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: color 0.3s;
+        &:hover {
+            color: @primary-color;
+        }
+    }
+    .other {
+        text-align: left;
+        margin-top: 24px;
+        line-height: 22px;
+        .register {
+            float: right;
+        }
+    }
+}
+
+.login {
+    :ng-deep {
+        .ant-tabs .ant-tabs-bar {
+            border-bottom: 0;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .ant-form-item {
+            margin: 0 2px 24px;
+        }
+    }
+    .icon {
+        font-size: 24px;
+        color: rgba(0, 0, 0, 0.2);
+        margin-left: 16px;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: color 0.3s;
+        &:hover {
+            color: @primary-color;
+        }
+    }
+    .other {
+        text-align: left;
+        margin-top: 24px;
+        line-height: 22px;
+        .register {
+            float: right;
+        }
+    }
+    .prefixIcon {
+        font-size: @font-size-base;
+        color: @disabled-color;
+    }
+    .submit {
+        width: 100%;
+        margin-top: 24px;
+    }
+}
+
+.top {
+    text-align: center;
+}
+
+.header {
+    height: 44px;
+    line-height: 44px;
+    margin-bottom: 40px;
+    a {
+        text-decoration: none;
+    }
+}
+
+.logo {
+    height: 44px;
+    vertical-align: top;
+    margin-right: 16px;
+}
+
+.title {
+    font-size: 33px;
+    color: @heading-color;
+    font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: relative;
+    top: 2px;
+}

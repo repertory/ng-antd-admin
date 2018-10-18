@@ -1,0 +1,209 @@
+@import '~ng-zorro-antd/style/themes/default.less';
+@pro-header-hover-bg: rgba(0, 0, 0, 0.025);
+:host ::ng-deep {
+    .header {
+        height: 64px;
+        padding: 0 12px 0 0;
+        background: #fff;
+        box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+        position: relative;
+        display: flex;
+    } // .logo {
+    //     height: 64px;
+    //     line-height: 58px;
+    //     vertical-align: top;
+    //     display: inline-block;
+    //     padding: 0 0 0 24px;
+    //     cursor: pointer;
+    //     font-size: 20px;
+    //     img {
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //     }
+    // }
+    .menu {
+        .anticon {
+            margin-right: 8px;
+        }
+        .ant-dropdown-menu-item {
+            width: 160px;
+        }
+    }
+    i.trigger {
+        font-size: 20px;
+        height: 64px;
+        cursor: pointer;
+        transition: all 0.3s, padding 0s;
+        padding: 22px 24px;
+        &:hover {
+            background: @pro-header-hover-bg;
+        }
+    }
+    .left {
+        flex: 1;
+        display: flex;
+        height: 64px;
+        padding: 0 12px 0 0;
+        position: relative;
+    }
+    .right {
+        float: right;
+        height: 100%;
+        overflow: hidden;
+        .action {
+            cursor: pointer;
+            padding: 0 12px;
+            display: inline-block;
+            transition: all 0.3s;
+            height: 100%;
+            >i {
+                vertical-align: middle;
+                color: @text-color;
+            }
+            &:hover {
+                background: @pro-header-hover-bg;
+            }
+            &.ant-popover-open {
+                background: @pro-header-hover-bg;
+            }
+        }
+        .search {
+            padding: 0 12px;
+            &:hover {
+                background: transparent;
+            }
+        }
+        .notice {
+            .anticon {
+                padding: 16px 4px;
+            }
+        }
+        .account {
+            .name {
+                margin-left: 8px;
+            }
+            .avatar {
+                margin: 20px 8px 20px 0;
+                color: @primary-color;
+                background: rgba(255, 255, 255, 0.85);
+                vertical-align: middle;
+            }
+        }
+        .setting {
+            .anticon {
+                font-size: 20px;
+            }
+        }
+    }
+    .dark {
+        height: 64px;
+        .action {
+            color: rgba(255, 255, 255, 0.85);
+            >i {
+                color: rgba(255, 255, 255, 0.85);
+            }
+            &:hover,
+            .ant-popover-open {
+                background: @primary-color;
+            }
+            .ant-badge {
+                color: rgba(255, 255, 255, 0.85);
+            }
+        }
+    }
+    @media only screen and (max-width: @screen-md) {
+        .header {
+            .ant-divider-vertical {
+                vertical-align: unset;
+            }
+            .name {
+                display: none;
+            } // i.trigger {
+            //     padding: 22px 12px;
+            // }
+            // .logo {
+            //     padding-left: 12px;
+            //     padding-right: 12px;
+            //     position: relative;
+            // }
+            .right {
+                float: right;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: #fff;
+                .account {
+                    .avatar {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+    .head {
+        width: 100%;
+        transition: background 0.3s, width 0.2s;
+        height: 64px; // padding: 0 12px 0 0;
+        box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+        position: relative;
+        .ant-menu-horizontal {
+            border-bottom: none;
+            height: 64px;
+            line-height: 64px;
+            max-width: calc(100vw - 260px - 100px);
+            overflow: hidden;
+        }
+        &.light {
+            background-color: #fff;
+        }
+        .main {
+            display: flex;
+            height: 64px; // padding-left: 24px;
+            &.wide {
+                max-width: 1200px;
+                margin: auto; // padding-left: 4px;
+                @media (min-width: 1200px) {
+                    .ant-menu-horizontal {
+                        max-width: calc(1200px - 260px - 100px);
+                    }
+                }
+            }
+            .left {
+                flex: 1;
+                display: flex;
+            }
+            .right {
+                text-align: right;
+                width: 260px;
+            }
+        }
+    }
+    .logo {
+        width: 100px;
+        height: 64px;
+        position: relative;
+        line-height: 64px;
+        transition: all 0.3s;
+        overflow: hidden;
+        background: none;
+        img {
+            display: inline-block;
+            vertical-align: middle;
+            height: 32px;
+        }
+        h1 {
+            color: #fff;
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px; // margin: 0 0 0 12px;
+            font-weight: 400;
+        }
+    }
+    .light {
+        h1 {
+            color: #002140 !important;
+        }
+    }
+}

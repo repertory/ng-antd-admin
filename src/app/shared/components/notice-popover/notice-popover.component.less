@@ -1,0 +1,88 @@
+@import '~ng-zorro-antd/style/themes/default.less';
+::ng-deep .notice-popover {
+    width: 336px;
+    .ant-popover-inner-content {
+        padding: 0;
+    }
+    nz-tabset {
+        .ant-tabs-nav-scroll {
+            text-align: center;
+        }
+        .ant-tabs-bar {
+            margin-bottom: 4px;
+        }
+    }
+    nz-list {
+        max-height: 400px;
+        overflow: auto;
+        nz-list-item {
+            transition: all 0.3s;
+            overflow: hidden;
+            cursor: pointer;
+            padding-left: 24px;
+            padding-right: 24px;
+            nz-list-item-meta {
+                width: 100%;
+            }
+            .avatar {
+                background: #fff;
+                margin-top: 4px;
+            }
+            .iconElement {
+                font-size: 32px;
+            }
+            &.read {
+                opacity: 0.4;
+            }
+            &:hover {
+                background: @primary-1;
+            }
+            .title {
+                font-weight: normal;
+                margin-bottom: 8px;
+            }
+            .description {
+                font-size: 12px;
+                line-height: @line-height-base;
+            }
+            .datetime {
+                font-size: 12px;
+                margin-top: 4px;
+                line-height: @line-height-base;
+            }
+            .extra {
+                float: right;
+                color: @text-color-secondary;
+                font-weight: normal;
+                margin-right: 0;
+                margin-top: -1.5px;
+            }
+        }
+        .ant-list-footer {
+            padding: 0;
+        }
+    }
+    .notFound {
+        text-align: center;
+        padding: 73px 0 88px 0;
+        color: @text-color-secondary;
+        img {
+            display: inline-block;
+            margin-bottom: 16px;
+            height: 76px;
+        }
+    }
+    .clear {
+        height: 46px;
+        line-height: 46px;
+        text-align: center;
+        color: @text-color;
+        border-radius: 0 0 @border-radius-base @border-radius-base;
+        border-top: 1px solid @border-color-split;
+        transition: all 0.3s;
+        cursor: pointer;
+        &:hover {
+            color: @heading-color;
+        }
+    }
+}

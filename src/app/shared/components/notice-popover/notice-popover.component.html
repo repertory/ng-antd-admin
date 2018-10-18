@@ -1,0 +1,47 @@
+<span [ngClass]="innerClass" nz-popover [nzTrigger]="trigger" [nzContent]="content" nzPlacement="bottomRight"
+  nzOverlayClassName="notice-popover" [nzVisible]="visible" (nzVisibleChange)="visibleChange.emit($event)">
+  <nz-badge [nzCount]="data.length">
+    <ng-content></ng-content>
+  </nz-badge>
+  <ng-template #content>
+    <nz-tabset>
+      <nz-tab *ngFor="let tab of tabs" nzTitle="{{ tab.title }} {{ tab.rows.length ? '(' + tab.rows.length + ')' : '' }}">
+        <nz-spin [nzSpinning]="spinning">
+          <div class="notFound" *ngIf="!tab.rows.length">
+            <img [src]="tab.empty.image" alt="not found" />
+            <div>{{ tab.empty.text }}</div>
+          </div>
+          <nz-list [nzDataSource]="tab.rows" [nzRenderItem]="item" *ngIf="tab.rows.length">
+            <ng-template #item let-item>
+              <nz-list-item [ngClass]="{read: item.read}">
+                <nz-list-item-meta [nzAvatar]="nzAvatar" [nzTitle]="nzTitle" [nzDescription]="nzDescription">
+                  <ng-template #nzAvatar>
+                    <span class="iconElement" *ngIf="item.avatar">
+                      <nz-avatar nzIcon="anticon anticon-user" [nzSrc]="item.avatar"></nz-avatar>
+                    </span>
+                  </ng-template>
+                  <ng-template #nzTitle>
+                    <div class="title">
+                      {{ item.title }}
+                      <div class="extra" *ngIf="item.extra && !item.color">{{ item.extra }}</div>
+                      <div class="extra" *ngIf="item.extra && item.color">
+                        <nz-tag [nzColor]="item.color">{{ item.extra }}</nz-tag>
+                      </div>
+                    </div>
+                  </ng-template>
+                  <ng-template #nzDescription>
+                    <div class="description" *ngIf="item.description">
+                      {{ item.description }}
+                    </div>
+                    <div class="datetime" *ngIf="item.datetime">{{ item.datetime }}</div>
+                  </ng-template>
+                </nz-list-item-meta>
+              </nz-list-item>
+            </ng-template>
+          </nz-list>
+          <div class="clear" (click)="clear.emit(tab.type)">清空{{ tab.title }}</div>
+        </nz-spin>
+      </nz-tab>
+    </nz-tabset>
+  </ng-template>
+</span>

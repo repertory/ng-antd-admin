@@ -1,0 +1,30 @@
+nz-layout {
+    min-height: 100vh;
+}
+
+nz-sider {
+    min-height: 100vh;
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+    position: relative;
+    z-index: 10;
+    &.fixSiderbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        .ant-menu-root {
+            overflow-y: auto;
+            height: calc(100vh - 64px);
+        }
+    }
+    &.light {
+        box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+        background-color: white;
+        .ant-menu-light {
+            border-right-color: transparent;
+        }
+    }
+}
+
+nz-header {
+    padding: 0;
+}

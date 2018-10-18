@@ -1,0 +1,32 @@
+@import '~ng-zorro-antd/style/themes/default.less';
+@nav-header-height: 64px;
+.logo {
+    height: @nav-header-height;
+    position: relative;
+    line-height: @nav-header-height; // padding-left: (@menu-collapsed-width - 32px) / 2;
+    transition: all 0.3s;
+    background: #002140;
+    overflow: hidden;
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        height: 32px;
+    }
+    h1 {
+        color: white;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px; // margin: 0 0 0 12px;
+        font-family: 'Myriad Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+    }
+    &.light {
+        background: white;
+        box-shadow: 1px 1px 0 0 @border-color-split;
+        h1 {
+            color: @primary-color;
+        }
+    }
+}
