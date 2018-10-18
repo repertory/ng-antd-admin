@@ -1,9 +1,5 @@
 <nz-layout [class.light]="setting?.theme == 'light'">
   <ng-container *ngIf="region?.sider !== false && !topMode">
-    <ng-template #sider>
-      <ng-content select="ng-container[sider]"></ng-content>
-    </ng-template>
-
     <nz-drawer *ngIf="siderMode == 'over'" [nzClosable]="false" [nzVisible]="!collapsed" nzPlacement="left" (nzOnClose)="collapsed = true"
       [nzBodyStyle]="{padding:0}">
       <nz-layout>
@@ -30,3 +26,7 @@
     </nz-footer>
   </nz-layout>
 </nz-layout>
+
+<ng-template #sider>
+  <ng-content select="ng-container[sider]"></ng-content>
+</ng-template>
