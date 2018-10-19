@@ -2,6 +2,19 @@ import { Component, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router, ActivationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { NzIconService } from 'ng-zorro-antd';
+import {
+  UserOutline,
+  SettingOutline,
+  LogoutOutline,
+  BellOutline,
+  GithubOutline,
+  MenuFoldOutline,
+  MenuUnfoldOutline,
+  WarningOutline,
+  QuestionCircleOutline,
+  LockOutline,
+} from '@ant-design/icons-angular/icons';
 
 @Component({
   selector: 'app-root,[app-root]',
@@ -40,7 +53,7 @@ export class AppComponent {
   menu = [
     {
       title: '我的面板',
-      icon: 'anticon anticon-user',
+      icon: 'user',
       children: [
         { title: '个人中心', routerLink: '/' },
         {
@@ -54,7 +67,7 @@ export class AppComponent {
     },
     {
       title: '系统设置',
-      icon: 'anticon anticon-setting',
+      icon: 'setting',
       children: [
         { title: '系统设置', routerLink: '/' },
         { title: '其他设置', routerLink: '/' }
@@ -62,7 +75,7 @@ export class AppComponent {
     },
     {
       title: '异常页面',
-      icon: 'anticon anticon-warning',
+      icon: 'warning',
       children: [
         { title: '403', routerLink: '/exception/403' },
         { title: '404', routerLink: '/exception/404' },
@@ -71,7 +84,7 @@ export class AppComponent {
     },
     {
       title: '关于系统',
-      icon: 'anticon anticon-question-circle-o',
+      icon: 'question-circle',
       routerLink: '/'
     }
   ];
@@ -91,17 +104,31 @@ export class AppComponent {
     }
   };
 
-  constructor(breakpointObserver: BreakpointObserver, router: Router) {
+  constructor(breakpointObserver: BreakpointObserver, router: Router, iconService: NzIconService) {
     breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall])
       .subscribe(result => {
         this.layout.siderMode = result.matches ? 'over' : 'side';
         this.layout.collapsed = result.matches;
       });
+
     router.events.pipe(filter(event => event instanceof ActivationStart))
       .subscribe((data: ActivationStart) => {
         const layout = data.snapshot.data.layout || {};
         this.layout.region = layout.region || { sider: true, header: true, content: true, footer: true };
       });
+
+    iconService.addIcon(...[
+      UserOutline,
+      SettingOutline,
+      LogoutOutline,
+      BellOutline,
+      GithubOutline,
+      MenuFoldOutline,
+      MenuUnfoldOutline,
+      WarningOutline,
+      QuestionCircleOutline,
+      LockOutline,
+    ]);
   }
 
 }

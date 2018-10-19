@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { NzIconService } from 'ng-zorro-antd';
+
 import { LayoutComponent } from '../layout/layout.component';
 
 interface MenuInterface {
