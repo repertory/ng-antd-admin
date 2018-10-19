@@ -42,9 +42,9 @@ export class AppComponent {
       title: '我的面板',
       icon: 'anticon anticon-user',
       children: [
-        { title: '个人中心', routerLink: '' },
+        { title: '个人中心', routerLink: '/' },
         {
-          title: '个人设置', routerLink: '',
+          title: '个人设置', routerLink: '/',
           // children: [
           //   { title: '系统设置', routerLink: '' },
           //   { title: '其他设置', routerLink: '' }
@@ -56,8 +56,8 @@ export class AppComponent {
       title: '系统设置',
       icon: 'anticon anticon-setting',
       children: [
-        { title: '系统设置', routerLink: '' },
-        { title: '其他设置', routerLink: '' }
+        { title: '系统设置', routerLink: '/' },
+        { title: '其他设置', routerLink: '/' }
       ]
     },
     {
@@ -71,7 +71,8 @@ export class AppComponent {
     },
     {
       title: '关于系统',
-      icon: 'anticon anticon-question-circle-o'
+      icon: 'anticon anticon-question-circle-o',
+      routerLink: '/'
     }
   ];
 
