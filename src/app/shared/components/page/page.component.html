@@ -1,4 +1,4 @@
-<div class="header" *ngIf="header">
+<div class="header" *ngIf="header && mode == 'layout'">
   <div class="content">
     <ng-container [ngTemplateOutlet]="header"></ng-container>
   </div>

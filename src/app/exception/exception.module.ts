@@ -13,7 +13,6 @@ import { ExceptionComponent } from './exception.component';
     SharedModule,
     ExceptionRoutingModule
   ],
-  declarations: [ExceptionComponent],
-  exports: [ExceptionComponent]
+  declarations: [ExceptionComponent]
 })
 export class ExceptionModule { }

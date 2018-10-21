@@ -1,53 +1,54 @@
-<div class="content">
-  <div class="top">
-    <div class="header">
-      <a [routerLink]="[ '/' ]">
-        <span class="title">LOGO</span>
-      </a>
+<app-page title="用户登录" mode="normal">
+  <div class="content">
+    <div class="top">
+      <div class="header">
+        <a [routerLink]="[ '/' ]">
+          <span class="title">LOGO</span>
+        </a>
+      </div>
+    </div>
+    <div class="main">
+      <div class="login">
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-user">
+                <input type="text" nz-input formControlName="userName" placeholder="用户名">
+              </nz-input-group>
+              <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">
+                请输入用户名！
+              </nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control>
+              <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-lock">
+                <input type="password" nz-input formControlName="password" placeholder="密码">
+              </nz-input-group>
+              <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
+                请输入密码！
+              </nz-form-explain>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control>
+              <label nz-checkbox formControlName="remember">
+                <span>自动登录</span>
+              </label>
+              <a [style.float]="'right'">忘记密码</a>
+              <button nz-button class="submit" nzSize="large" nzType="primary" [nzLoading]="submiting">登录</button>
+              <div class="other">
+                其他方式
+                <i class="anticon anticon-alipay-circle icon"></i>
+                <i class="anticon anticon-taobao-circle icon"></i>
+                <i class="anticon anticon-weibo-circle icon"></i>
+
+                <a class="register">新用户注册</a>
+              </div>
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="main">
-    <div class="login">
-      <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
-        <nz-form-item>
-          <nz-form-control>
-            <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-user">
-              <input type="text" nz-input formControlName="userName" placeholder="用户名">
-            </nz-input-group>
-            <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">
-              请输入用户名！
-            </nz-form-explain>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-          <nz-form-control>
-            <nz-input-group nzSize="large" nzPrefixIcon="anticon anticon-lock">
-              <input type="password" nz-input formControlName="password" placeholder="密码">
-            </nz-input-group>
-            <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
-              请输入密码！
-            </nz-form-explain>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-          <nz-form-control>
-            <label nz-checkbox formControlName="remember">
-              <span>自动登录</span>
-            </label>
-            <a [style.float]="'right'">忘记密码</a>
-            <button nz-button class="submit" nzSize="large" nzType="primary" [nzLoading]="submiting">登录</button>
-            <div class="other">
-              其他方式
-              <i class="anticon anticon-alipay-circle icon"></i>
-              <i class="anticon anticon-taobao-circle icon"></i>
-              <i class="anticon anticon-weibo-circle icon"></i>
-
-              <a class="register">新用户注册</a>
-            </div>
-          </nz-form-control>
-        </nz-form-item>
-      </form>
-    </div>
-  </div>
-
-</div>
+</app-page>
