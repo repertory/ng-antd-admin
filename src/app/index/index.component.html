@@ -3,39 +3,11 @@
     <nz-breadcrumb-item>首页</nz-breadcrumb-item>
     <nz-breadcrumb-item>仪表盘</nz-breadcrumb-item>
   </nz-breadcrumb>
-  <div class="extraContent">
-    <div class="statItem">
-      <p>项目数</p>
-      <p>56</p>
-    </div>
-    <div class="statItem">
-      <p>团队内排名</p>
-      <p>
-        8<span> / 24</span>
-      </p>
-    </div>
-    <div class="statItem">
-      <p>项目访问</p>
-      <p>2,223</p>
-    </div>
-  </div>
-  <div class="pageHeaderContent">
-    <div class="avatar">
-      <nz-avatar nzSize="large" nzIcon="anticon anticon-user"></nz-avatar>
-    </div>
-    <div class="content">
-      <div class="contentTitle">
-        早安，wangdong
-        ，祝你开心每一天！
-      </div>
-      <div>项目作者 | 其他说明</div>
-    </div>
-  </div>
 </ng-template>
 
-<app-page [header]="header" title="">
+<app-page [header]="header" title="首页">
   <div nz-row [nzGutter]="24">
-    <div nz-col [nzXl]="16" [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXs]="24">
+    <div nz-col [nzXl]="16" [nzLg]="24" [nzMd]="24" [nzSm]="24" [nzXs]="24" [style.marginBottom.px]="24">
       <nz-card class="projectList" nzTitle="Card title" [style.marginBottom.px]="24">
         <p>Card content</p>
         <p>Card content</p>
