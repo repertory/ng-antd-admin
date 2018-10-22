@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { Router, ActivationStart } from '@angular/router';
+import { Router, ActivationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { NzIconService } from 'ng-zorro-antd';
 import {
@@ -111,10 +111,14 @@ export class AppComponent {
         this.layout.collapsed = result.matches;
       });
 
-    router.events.pipe(filter(event => event instanceof ActivationStart))
-      .subscribe((data: ActivationStart) => {
+    router.events.pipe(filter(event => event instanceof ActivationEnd))
+      .subscribe((data: ActivationEnd) => {
         const layout = data.snapshot.data.layout || {};
         this.layout.region = layout.region || { sider: true, header: true, content: true, footer: true };
+
+        if (this.layout.siderMode == 'over') {
+          this.layout.collapsed = true;
+        }
       });
 
     iconService.addIcon(...[
