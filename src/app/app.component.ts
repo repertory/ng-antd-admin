@@ -89,7 +89,7 @@ export class AppComponent {
     {
       title: '关于系统',
       icon: 'question-circle',
-      routerLink: '/'
+      routerLink: '/about'
     }
   ];
 
