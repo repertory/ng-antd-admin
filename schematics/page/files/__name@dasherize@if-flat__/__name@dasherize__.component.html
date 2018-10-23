@@ -2,6 +2,7 @@
   <nz-card nzTitle="<%= dasherize(name) %>">
     <p>
       <%= dasherize(name) %> works!
-    </p>
+    </p><% if(children) { %>
+    <router-outlet></router-outlet><% } %>
   </nz-card>
 </app-page>

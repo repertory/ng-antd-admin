@@ -6,12 +6,13 @@ import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.compone
 const routes: Routes = [
   {
     path: '<%= name %>',
-    component: <%= classify(name) %>Component
+    component: <%= classify(name) %>Component<% if(children) { %>,
+    loadChildren: './<%= dasherize(name) %>-children.module#<%= classify(name) %>ChildrenModule'<% } %>
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.for<%= routingScope %>(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class <%= classify(name) %>RoutingModule { }

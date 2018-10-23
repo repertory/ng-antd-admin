@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';<% if (commonModule) { %>
-import { CommonModule } from '@angular/common';<% } %>
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
-import { SharedModule } from '~/shared/shared.module';<% if (routing) { %>
-import { <%= classify(name) %>RoutingModule } from './<%= dasherize(name) %>-routing.module';<% } %>
+import { SharedModule } from '~/shared/shared.module';
+import { <%= classify(name) %>RoutingModule } from './<%= dasherize(name) %>-routing.module';
 import { <%= classify(name) %>Component } from './<%= dasherize(name) %>.component';
 
 @NgModule({
-  imports: [<% if (commonModule) { %>
+  imports: [
     CommonModule,
     NgZorroAntdModule,
-    SharedModule<%= routing ? ',' : '' %><% } %><% if (routing) { %>
-    <%= classify(name) %>RoutingModule<% } %>
+    SharedModule,
+    <%= classify(name) %>RoutingModule
   ],
   declarations: [<%= classify(name) %>Component]
 })
