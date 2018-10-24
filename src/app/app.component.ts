@@ -32,15 +32,15 @@ export class AppComponent {
   layout = {
     collapsed: true,
     siderMode: 'side',
+    topMode: function () {
+      return this.siderMode != 'over' && this.setting.mode == 'top';
+    },
     setting: {
       theme: 'dark',
       color: 'daybreak',
       mode: 'side',
       fixedWidth: false,
       colorweak: false
-    },
-    topMode: function () {
-      return this.siderMode != 'over' && this.setting.mode == 'top';
     }
   };
 
@@ -103,20 +103,18 @@ export class AppComponent {
   };
 
   constructor(breakpointObserver: BreakpointObserver, router: Router, iconService: NzIconService) {
-    breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe(result => {
-        this.layout.siderMode = result.matches ? 'over' : 'side';
-        this.layout.collapsed = result.matches;
-      });
+    breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall]).subscribe(result => {
+      this.layout.siderMode = result.matches ? 'over' : 'side';
+      this.layout.collapsed = result.matches;
+    });
 
-    router.events.pipe(filter(event => event instanceof ActivationStart))
-      .subscribe(() => {
-        if (this.layout.siderMode == 'over') {
-          this.layout.collapsed = true;
-        }
-      });
+    router.events.pipe(filter(event => event instanceof ActivationStart)).subscribe(() => {
+      if (this.layout.siderMode == 'over') {
+        this.layout.collapsed = true;
+      }
+    });
 
-    iconService.addIcon(...[
+    iconService.addIcon(
       UserOutline,
       SettingOutline,
       LogoutOutline,
@@ -126,8 +124,8 @@ export class AppComponent {
       MenuUnfoldOutline,
       WarningOutline,
       QuestionCircleOutline,
-      LockOutline,
-    ]);
+      LockOutline
+    );
   }
 
 }
