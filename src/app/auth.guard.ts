@@ -21,7 +21,7 @@ export class AuthGuard implements CanActivateChild {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
 
-    if (this.guests.find(guest => state.url.startsWith(guest)) {
+    if (this.guests.find(guest => state.url.startsWith(guest))) {
       return true;
     }
 
