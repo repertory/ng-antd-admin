@@ -14,11 +14,13 @@ import { LayoutComponent } from '../layout/layout.component';
 export class PageComponent implements AfterViewInit {
 
   private data = {
-    title: ''
+    title: '',
+    region: { sider: false, header: false, content: true, footer: false }
   };
 
   @Input() header: TemplateRef<void> | null = null;
   @Input() mode: string = 'layout';
+
   @Input()
   get title(): string {
     return this.data.title;
@@ -28,11 +30,22 @@ export class PageComponent implements AfterViewInit {
     this.pageTitle.setTitle(val);
   }
 
+  @Input()
+  get region() {
+    return this.data.region;
+  }
+  set region(val) {
+    this.data.region = val;
+    this.layout.region = val;
+  }
+
   get isWide(): boolean {
     return this.layout.setting.mode == 'top' && this.layout.setting.fixedWidth;
   }
 
-  constructor(private layout: LayoutComponent, private pageTitle: Title) { }
+  constructor(private layout: LayoutComponent, private pageTitle: Title) {
+    this.region = { sider: true, header: true, content: true, footer: true };
+  }
 
   ngAfterViewInit() {
     if (!this.title) {

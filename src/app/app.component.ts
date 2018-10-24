@@ -32,12 +32,6 @@ export class AppComponent {
   layout = {
     collapsed: true,
     siderMode: 'side',
-    region: {
-      sider: false,
-      header: false,
-      content: true,
-      footer: false
-    },
     setting: {
       theme: 'dark',
       color: 'daybreak',
@@ -116,10 +110,7 @@ export class AppComponent {
       });
 
     router.events.pipe(filter(event => event instanceof ActivationStart))
-      .subscribe((data: ActivationStart) => {
-        const layout = data.snapshot.data.layout || {};
-        this.layout.region = layout.region || { sider: true, header: true, content: true, footer: true };
-
+      .subscribe(() => {
         if (this.layout.siderMode == 'over') {
           this.layout.collapsed = true;
         }

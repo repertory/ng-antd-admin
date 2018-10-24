@@ -15,6 +15,12 @@ export class LoginComponent implements OnInit {
   validateForm: FormGroup;
   submiting = false;
 
+  region = {
+    sider: false,
+    header: false,
+    footer: false
+  };
+
   submitForm() {
     for (const i in this.validateForm.controls) {
       this.validateForm.controls[i].markAsDirty();

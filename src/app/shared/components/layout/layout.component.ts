@@ -11,7 +11,7 @@ export class LayoutComponent {
 
   @Output() collapsedChange = new EventEmitter();
 
-  @Input() region: { [key: string]: boolean; } = { sider: true, header: true, content: true, footer: true };
+  @Input() region: { [key: string]: boolean; } = { sider: false, header: false, content: true, footer: false };
   @Input() siderWidth: number = 256;
   @Input() siderMode: string = 'side';
   @Input() topMode: boolean = false;

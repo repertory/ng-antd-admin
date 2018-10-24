@@ -15,7 +15,7 @@ export class AuthGuard implements CanActivateChild {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    console.info('AppRoutingModule canActivateChild', this.user);
+    console.info('AppRoutingModule canActivateChild', next, state);
     return true;
   }
 }

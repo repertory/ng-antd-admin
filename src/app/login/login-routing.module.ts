@@ -5,16 +5,7 @@ import { LoginComponent } from './login.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent,
-    data: {
-      layout: {
-        region: {
-          sider: false,
-          header: false,
-          footer: false
-        }
-      }
-    }
+    component: LoginComponent
   }
 ];
 
