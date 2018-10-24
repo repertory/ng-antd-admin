@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router, ActivationStart } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -27,7 +27,7 @@ import {
     '[attr.mode]': 'layout.setting.mode'
   }
 })
-export class AppComponent {
+export class AppComponent implements DoCheck {
 
   layout = {
     collapsed: true,
@@ -126,6 +126,10 @@ export class AppComponent {
       QuestionCircleOutline,
       LockOutline
     );
+  }
+
+  ngDoCheck() {
+    console.log('触发其他验证');
   }
 
 }

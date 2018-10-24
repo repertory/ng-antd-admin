@@ -25,12 +25,10 @@ export class AuthGuard implements CanActivateChild {
       return true;
     }
 
-    if (!this.user.current) {
-      this.notification.warning('系统提示', '用户未登录，请重新登录！');
+    return this.user.hasLogin().catch(() => {
+      this.notification.error('系统提示', '用户未登录，请重新登录！');
       this.router.navigate(['/login', { next: state.url }]);
-      return false;
-    }
-
-    return true;
+      return Promise.resolve(false);
+    });
   }
 }
