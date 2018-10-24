@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: '<%= name %>',
     component: <%= classify(name) %>Component<% if(children) { %>,
-    loadChildren: './<%= dasherize(name) %>-children.module#<%= classify(name) %>ChildrenModule'<% } %>
+    loadChildren: '<%= children %>#<%= classify(name) %>ChildrenModule'<% } %>
   }
 ];
 
