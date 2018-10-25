@@ -3,16 +3,16 @@ import { CommonModule } from '@angular/common';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { SharedModule } from '~/shared/shared.module';
-import { AboutRoutingModule } from './about-routing.module';
-import { AboutComponent } from './about.component';
+import { CenterRoutingModule } from './center-routing.module';
+import { CenterComponent } from './center.component';
 
 @NgModule({
   imports: [
     CommonModule,
     NgZorroAntdModule,
     SharedModule,
-    AboutRoutingModule
+    CenterRoutingModule
   ],
-  declarations: [AboutComponent]
+  declarations: [CenterComponent]
 })
-export class AboutModule { }
+export class CenterModule { }

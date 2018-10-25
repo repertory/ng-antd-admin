@@ -51,15 +51,11 @@ export class AppComponent implements DoCheck {
       children: [
         {
           title: '个人中心',
-          routerLink: '/'
+          routerLink: '/account/center'
         },
         {
           title: '个人设置',
-          routerLink: '/',
-          children: [
-            { title: '系统设置', routerLink: '/' },
-            { title: '其他设置', routerLink: '/' }
-          ]
+          routerLink: '/account/setting'
         }
       ]
     },
@@ -67,8 +63,8 @@ export class AppComponent implements DoCheck {
       title: '系统设置',
       icon: 'setting',
       children: [
-        { title: '系统设置', routerLink: '/' },
-        { title: '其他设置', routerLink: '/' }
+        { title: '角色管理', routerLink: '/system/role' },
+        { title: '用户管理', routerLink: '/system/user' }
       ]
     },
     {
@@ -81,9 +77,9 @@ export class AppComponent implements DoCheck {
       ]
     },
     {
-      title: '关于系统',
+      title: '使用帮助',
       icon: 'question-circle',
-      routerLink: '/about'
+      routerLink: '/page/help'
     }
   ];
 
