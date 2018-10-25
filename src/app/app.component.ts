@@ -129,7 +129,7 @@ export class AppComponent implements DoCheck {
   }
 
   ngDoCheck() {
-    console.log('触发其他验证');
+    // console.log('触发其他验证');
   }
 
 }
