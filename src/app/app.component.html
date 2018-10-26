@@ -21,24 +21,24 @@
         <a class="action" nz-tooltip nzPlacement="bottom" nzTitle="获取源码" target="_blank" href="https://github.com/repertory/ng-antd-admin">
           <i nz-icon type="github"></i>
         </a>
-        <app-notice-popover [spinning]="notice.spinning" [data]="notice.data" [innerClass]="notice.innerClass" (clear)="notice.clear($event)"
-          (visibleChange)="notice.visibleChange($event)">
+        <app-notice-popover [spinning]="user.notice.spinning" [data]="user.notice.data" [innerClass]="{ action: true, notice: true }"
+          (clear)="user.notice.clear($event)" (visibleChange)="user.notice.visibleChange($event)" *ngIf="user.current">
           <i nz-icon type="bell"></i>
         </app-notice-popover>
-        <nz-dropdown nzPlacement="bottomRight">
+        <nz-dropdown nzPlacement="bottomRight" *ngIf="user.current">
           <span nz-dropdown class="action account">
             <nz-avatar nzSize="small" nzIcon="anticon anticon-user"></nz-avatar>
-            <span class="name">wangdong</span>
+            <span class="name" *ngIf="user.current?.name">{{ user.current?.name }}</span>
           </span>
           <ul nz-menu>
-            <li nz-menu-item>
+            <li nz-menu-item routerLink="/account/center">
               <i nz-icon type="user"></i>个人中心
             </li>
-            <li nz-menu-item>
+            <li nz-menu-item routerLink="/account/setting">
               <i nz-icon type="setting"></i>个人设置
             </li>
             <li nz-menu-divider></li>
-            <li nz-menu-item routerLink="/login">
+            <li nz-menu-item (click)="logout()">
               <i nz-icon type="logout"></i>退出登录
             </li>
           </ul>
