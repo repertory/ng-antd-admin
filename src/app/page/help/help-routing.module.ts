@@ -10,8 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/page/help',
-    pathMatch: 'full'
+    redirectTo: '/page/help'
   }
 ];
 

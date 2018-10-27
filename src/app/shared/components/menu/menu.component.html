@@ -1,7 +1,11 @@
 <ul nz-menu [nzTheme]="setting?.theme || 'light'" [nzMode]="mode" [nzInlineCollapsed]="inlineCollapsed">
   <ng-container *ngFor="let item of data">
+    <ng-container *ngTemplateOutlet="menuItem; context: {$implicit: item}"></ng-container>
+  </ng-container>
+
+  <ng-template #menuItem let-item>
     <li nz-menu-divider *ngIf="!item.title"></li>
-    <li nz-menu-item [routerLink]="item?.routerLink || null" *ngIf="item.title && !item?.children?.length">
+    <li nz-menu-item [routerLink]="menu?.routerLink || null" *ngIf="item.title && !item?.children?.length">
       <span>
         <i nz-icon type="{{ item.icon }}" *ngIf="item.icon"></i>
         <span class="nav-text">{{ item.title }}</span>
@@ -13,33 +17,10 @@
         <span class="nav-text">{{ item.title }}</span>
       </span>
       <ul>
-        <ng-container *ngFor="let item2 of item.children">
-          <li nz-menu-divider *ngIf="!item2.title"></li>
-          <li nz-menu-item [routerLink]="item2?.routerLink || null" *ngIf="item2.title && !item2?.children?.length">
-            <span>
-              <i nz-icon type="{{ item2.icon }}" *ngIf="item2.icon"></i>
-              <span class="nav-text">{{ item2.title }}</span>
-            </span>
-          </li>
-          <li nz-submenu *ngIf="item2.title && item2.children?.length">
-            <span title>
-              <i nz-icon type="{{ item2.icon }}" *ngIf="item2.icon"></i>
-              <span class="nav-text">{{ item2.title }}</span>
-            </span>
-            <ul>
-              <ng-container *ngFor="let item3 of item2.children">
-                <li nz-menu-divider *ngIf="!item3.title"></li>
-                <li nz-menu-item [routerLink]="item3?.routerLink || null" *ngIf="item3.title">
-                  <span>
-                    <i nz-icon type="{{ item3.icon }}" *ngIf="item3.icon"></i>
-                    <span class="nav-text">{{ item3.title }}</span>
-                  </span>
-                </li>
-              </ng-container>
-            </ul>
-          </li>
+        <ng-container *ngFor="let child of item.children">
+          <ng-container *ngTemplateOutlet="menuItem; context: {$implicit: child}"></ng-container>
         </ng-container>
       </ul>
     </li>
-  </ng-container>
+  </ng-template>
 </ul>
