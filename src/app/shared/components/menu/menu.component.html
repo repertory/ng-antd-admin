@@ -1,11 +1,7 @@
 <ul nz-menu [nzTheme]="setting?.theme || 'light'" [nzMode]="mode" [nzInlineCollapsed]="inlineCollapsed">
   <ng-container *ngFor="let item of data">
-    <ng-container *ngTemplateOutlet="menuItem; context: {$implicit: item}"></ng-container>
-  </ng-container>
-
-  <ng-template #menuItem let-item>
     <li nz-menu-divider *ngIf="!item.title"></li>
-    <li nz-menu-item [routerLink]="menu?.routerLink || null" *ngIf="item.title && !item?.children?.length">
+    <li nz-menu-item [routerLink]="item?.routerLink || null" *ngIf="item.title && !item?.children?.length">
       <span>
         <i nz-icon type="{{ item.icon }}" *ngIf="item.icon"></i>
         <span class="nav-text">{{ item.title }}</span>
@@ -17,10 +13,67 @@
         <span class="nav-text">{{ item.title }}</span>
       </span>
       <ul>
-        <ng-container *ngFor="let child of item.children">
-          <ng-container *ngTemplateOutlet="menuItem; context: {$implicit: child}"></ng-container>
+        <ng-container *ngFor="let item2 of item.children">
+          <li nz-menu-divider *ngIf="!item2.title"></li>
+          <li nz-menu-item [routerLink]="item2?.routerLink || null" *ngIf="item2.title && !item2?.children?.length">
+            <span>
+              <i nz-icon type="{{ item2.icon }}" *ngIf="item2.icon"></i>
+              <span class="nav-text">{{ item2.title }}</span>
+            </span>
+          </li>
+          <li nz-submenu *ngIf="item2.title && item2.children?.length">
+            <span title>
+              <i nz-icon type="{{ item2.icon }}" *ngIf="item2.icon"></i>
+              <span class="nav-text">{{ item2.title }}</span>
+            </span>
+            <ul>
+              <ng-container *ngFor="let item3 of item2.children">
+                <li nz-menu-divider *ngIf="!item3.title"></li>
+                <li nz-menu-item [routerLink]="item3?.routerLink || null" *ngIf="item3.title && !item3?.children?.length">
+                  <span>
+                    <i nz-icon type="{{ item3.icon }}" *ngIf="item3.icon"></i>
+                    <span class="nav-text">{{ item3.title }}</span>
+                  </span>
+                </li>
+                <li nz-submenu *ngIf="item3.title && item3.children?.length">
+                  <span title>
+                    <i nz-icon type="{{ item3.icon }}" *ngIf="item3.icon"></i>
+                    <span class="nav-text">{{ item3.title }}</span>
+                  </span>
+                  <ul>
+                    <ng-container *ngFor="let item4 of item3.children">
+                      <li nz-menu-divider *ngIf="!item4.title"></li>
+                      <li nz-menu-item [routerLink]="item4?.routerLink || null" *ngIf="item4.title && !item4?.children?.length">
+                        <span>
+                          <i nz-icon type="{{ item4.icon }}" *ngIf="item4.icon"></i>
+                          <span class="nav-text">{{ item4.title }}</span>
+                        </span>
+                      </li>
+                      <li nz-submenu *ngIf="item4.title && item4.children?.length">
+                        <span title>
+                          <i nz-icon type="{{ item4.icon }}" *ngIf="item4.icon"></i>
+                          <span class="nav-text">{{ item4.title }}</span>
+                        </span>
+                        <ul>
+                          <ng-container *ngFor="let item5 of item4.children">
+                            <li nz-menu-divider *ngIf="!item5.title"></li>
+                            <li nz-menu-item [routerLink]="item5?.routerLink || null" *ngIf="item5.title">
+                              <span>
+                                <i nz-icon type="{{ item5.icon }}" *ngIf="item5.icon"></i>
+                                <span class="nav-text">{{ item5.title }}</span>
+                              </span>
+                            </li>
+                          </ng-container>
+                        </ul>
+                      </li>
+                    </ng-container>
+                  </ul>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
         </ng-container>
       </ul>
     </li>
-  </ng-template>
+  </ng-container>
 </ul>
