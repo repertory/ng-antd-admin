@@ -9,7 +9,7 @@ interface SettingInterface {
 }
 
 @Component({
-  selector: 'app-setting-drawer',
+  selector: 'setting-drawer',
   templateUrl: './setting-drawer.component.html',
   styleUrls: ['./setting-drawer.component.less']
 })

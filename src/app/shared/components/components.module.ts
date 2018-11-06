@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
-import { HeaderModule } from './header/header.module';
 import { LayoutModule } from './layout/layout.module';
 import { MarkdownModule } from './markdown/markdown.module';
-import { MenuModule } from './menu/menu.module';
+import { NavbarModule } from './navbar/navbar.module';
 import { NoticePopoverModule } from './notice-popover/notice-popover.module';
 import { PageModule } from './page/page.module';
 import { SettingDrawerModule } from './setting-drawer/setting-drawer.module';
+import { ToolbarModule } from './toolbar/toolbar.module';
 
 @NgModule({
   exports: [
-    HeaderModule,
     LayoutModule,
     MarkdownModule,
-    MenuModule,
+    NavbarModule,
     NoticePopoverModule,
     PageModule,
-    SettingDrawerModule
+    SettingDrawerModule,
+    ToolbarModule
   ]
 })
 export class ComponentsModule { }

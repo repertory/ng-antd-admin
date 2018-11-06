@@ -1,8 +1,8 @@
-<app-page [title]="'<%= dasherize(name) %>'">
+<page [title]="'<%= dasherize(name) %>'">
   <nz-card nzTitle="<%= dasherize(name) %>">
     <p>
       <%= dasherize(name) %> works!
     </p><% if(children) { %>
     <router-outlet></router-outlet><% } %>
   </nz-card>
-</app-page>
+</page>

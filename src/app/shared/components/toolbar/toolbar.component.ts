@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+
 import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.less']
+  selector: 'toolbar',
+  templateUrl: './toolbar.component.html',
+  styleUrls: ['./toolbar.component.less']
 })
-export class HeaderComponent {
+export class ToolbarComponent {
 
   get setting() {
     return this.layout.setting;

@@ -1,9 +1,10 @@
 import { Component, AfterViewInit, Input, TemplateRef } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+
 import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
-  selector: 'app-page,[app-page]',
+  selector: 'page',
   templateUrl: './page.component.html',
   styleUrls: ['./page.component.less'],
   host: {

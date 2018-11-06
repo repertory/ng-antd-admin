@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-
-import { MenuComponent } from './menu.component';
+import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   imports: [
@@ -11,7 +10,7 @@ import { MenuComponent } from './menu.component';
     RouterModule,
     NgZorroAntdModule
   ],
-  declarations: [MenuComponent],
-  exports: [MenuComponent]
+  declarations: [NavbarComponent],
+  exports: [NavbarComponent]
 })
-export class MenuModule { }
+export class NavbarModule { }

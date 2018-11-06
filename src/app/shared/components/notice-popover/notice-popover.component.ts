@@ -12,7 +12,7 @@ interface TabInterface {
 }
 
 @Component({
-  selector: 'app-notice-popover',
+  selector: 'notice-popover',
   templateUrl: './notice-popover.component.html',
   styleUrls: ['./notice-popover.component.less']
 })

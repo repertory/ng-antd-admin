@@ -13,7 +13,7 @@ import 'prismjs/components/prism-git';
 import 'prismjs/components/prism-http';
 
 @Component({
-  selector: 'app-markdown, [app-markdown]',
+  selector: 'markdown',
   templateUrl: './markdown.component.html',
   styleUrls: ['./markdown.component.less']
 })

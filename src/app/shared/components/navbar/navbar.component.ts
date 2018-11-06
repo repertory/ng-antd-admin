@@ -10,11 +10,11 @@ interface MenuInterface {
 }
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.less']
+  selector: 'navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.less']
 })
-export class MenuComponent {
+export class NavbarComponent {
 
   @Input() data: MenuInterface[] = [];
   @Input() inlineCollapsed: boolean = false;

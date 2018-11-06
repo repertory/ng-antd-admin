@@ -1,13 +1,13 @@
-<app-layout [(collapsed)]="layout.collapsed" [siderMode]="layout.siderMode" [topMode]="layout.topMode()" [setting]="layout.setting">
+<layout [(collapsed)]="layout.collapsed" [siderMode]="layout.siderMode" [topMode]="layout.topMode()" [setting]="layout.setting">
   <ng-container sider>
     <div class="logo" [class.light]="layout.setting.theme == 'light'">
       <h1>LOGO</h1>
     </div>
-    <app-menu [data]="menu" [inlineCollapsed]="layout.siderMode == 'over' ? false : layout.collapsed"></app-menu>
+    <navbar [data]="menu" [inlineCollapsed]="layout.siderMode == 'over' ? false : layout.collapsed"></navbar>
   </ng-container>
 
   <ng-container header>
-    <app-header>
+    <toolbar>
       <ng-container left *ngIf="!layout.topMode()">
         <i nz-icon class="anticon trigger" [type]="layout.collapsed ? 'menu-unfold' : 'menu-fold'" (click)="layout.collapsed=!layout.collapsed"></i>
       </ng-container>
@@ -15,16 +15,16 @@
         <div class="logo">
           <h1>LOGO</h1>
         </div>
-        <app-menu [data]="menu" mode="horizontal"></app-menu>
+        <navbar [data]="menu" mode="horizontal"></navbar>
       </ng-container>
       <ng-container right>
         <a class="action" nz-tooltip nzPlacement="bottom" nzTitle="获取源码" target="_blank" href="https://github.com/repertory/ng-antd-admin">
           <i nz-icon type="github"></i>
         </a>
-        <app-notice-popover [spinning]="user.notice.spinning" [data]="user.notice.data" [innerClass]="{ action: true, notice: true }"
+        <notice-popover [spinning]="user.notice.spinning" [data]="user.notice.data" [innerClass]="{ action: true, notice: true }"
           (clear)="user.notice.clear($event)" (visibleChange)="user.notice.visibleChange($event)" *ngIf="user.current">
           <i nz-icon type="bell"></i>
-        </app-notice-popover>
+        </notice-popover>
         <nz-dropdown nzPlacement="bottomRight" *ngIf="user.current">
           <span nz-dropdown class="action account">
             <nz-avatar nzSize="small" nzIcon="anticon anticon-user"></nz-avatar>
@@ -43,11 +43,11 @@
             </li>
           </ul>
         </nz-dropdown>
-        <app-setting-drawer [(setting)]="layout.setting" [innerClass]="{ action: true, setting: true }">
+        <setting-drawer [(setting)]="layout.setting" [innerClass]="{ action: true, setting: true }">
           <i nz-icon type="setting"></i>
-        </app-setting-drawer>
+        </setting-drawer>
       </ng-container>
-    </app-header>
+    </toolbar>
   </ng-container>
 
   <ng-container content>
@@ -57,4 +57,4 @@
   <ng-container footer>
     <div style="text-align: center;">Copyright ©2018 Powered By wangdong</div>
   </ng-container>
-</app-layout>
+</layout>
